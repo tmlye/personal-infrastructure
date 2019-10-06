@@ -4,5 +4,5 @@ provider "aws" {
   region = "us-east-1"
 
   shared_credentials_file = "$HOME/.aws/credentials"
-  profile                 = "personal-master"
+  profile                 = "master-terraform"
 }

@@ -27,6 +27,15 @@ resource "aws_iam_user" "terraform" {
 }
 
 resource "aws_iam_access_key" "terraform" {
+  provider = aws.new_account
+
   user    = aws_iam_user.terraform.name
   pgp_key = "keybase:${var.keybase_username}"
+}
+
+resource "aws_iam_user_policy_attachment" "terraform_admin" {
+  provider = aws.new_account
+
+  user       = aws_iam_user.terraform.name
+  policy_arn = "arn:aws:iam::aws:policy/AdministratorAccess"
 }
