@@ -16,16 +16,10 @@ resource "aws_organizations_organization" "org" {
   enabled_policy_types = ["SERVICE_CONTROL_POLICY"]
 }
 
-# This account is suspended and can't be removed
-# because the signup process was never completed
-resource "aws_organizations_account" "personal" {
-  name  = "personal"
-  email = "aws-personal@saschaeglau.com"
-}
-
 module "personal_account" {
   source = "../terraform-modules/aws-account"
 
+  profile          = var.profile
   name             = "personal-2"
   email            = "aws-personal-2@saschaeglau.com"
   keybase_username = var.keybase_username

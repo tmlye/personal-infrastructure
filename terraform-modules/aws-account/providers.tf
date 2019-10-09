@@ -1,7 +1,8 @@
 # This provider assumes a role in the new account
 provider "aws" {
-  alias  = "new_account"
-  region = "us-east-1"
+  alias   = "new_account"
+  region  = "us-east-1"
+  profile = var.profile
 
   assume_role {
     role_arn     = "arn:aws:iam::${aws_organizations_account.this.id}:role/${local.role_name}"
