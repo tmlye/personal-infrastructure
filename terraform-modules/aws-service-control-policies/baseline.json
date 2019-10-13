@@ -1,0 +1,15 @@
+{
+  "Version": "2012-10-17",
+  "Statement": {
+    "Effect": "Allow",
+    "Action": [
+        "budgets:*",
+        "dynamodb:*",
+        "iam:*",
+        "organizations:*",
+        "s3:*",
+        "support:*"
+    ],
+    "Resource": "*"
+  }
+}
