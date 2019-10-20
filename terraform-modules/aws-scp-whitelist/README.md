@@ -2,6 +2,6 @@
 
 This module uses an [allow list](https://docs.aws.amazon.com/organizations/latest/userguide/SCP_strategies.html#orgs_policies_allowlist)
 to control access to services.
-It is intended to be applied to each account, because each account needs to have at least one SCP directly attached to it.
-This acts as a replacement for the FullAWSAccess policy which is attached to accounts by default.
+It is intended to be applied to each account, org unit and the org. Each account, org unit and the org need to have at least one SCP directly attached to it.
+This acts as a replacement for the FullAWSAccess policy which is attached by default.
 
