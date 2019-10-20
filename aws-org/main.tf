@@ -24,3 +24,10 @@ module "personal_account" {
   email            = "aws-personal-2@saschaeglau.com"
   keybase_username = var.keybase_username
 }
+
+module "account_scp" {
+  source = "../terraform-modules/aws-scp-whitelist"
+
+  aws_profile = var.profile
+  target_id   = module.personal_account.id
+}
