@@ -6,6 +6,7 @@
         "budgets:*",
         "dynamodb:*",
         "iam:*",
+        "kms:*",
         "organizations:*",
         "s3:*",
         "support:*"
