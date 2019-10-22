@@ -9,6 +9,7 @@
         "kms:*",
         "organizations:*",
         "s3:*",
+        "sts:*",
         "support:*"
     ],
     "Resource": "*"
