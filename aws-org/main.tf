@@ -25,22 +25,14 @@ module "personal_account" {
   keybase_username = var.keybase_username
 }
 
-module "scp_whitelist" {
-  source = "../terraform-modules/aws-scp-whitelist"
+module "scp_allow_list" {
+  source = "../terraform-modules/aws-scp-allow-list"
 }
 
-module "org_whitelist_attachment" {
+module "personal_account_allow_list_attachment" {
   source = "../terraform-modules/aws-scp-attachment"
 
   aws_profile = var.profile
-  policy_id   = module.scp_whitelist.id
-  target_id   = aws_organizations_organization.org.roots.0.id
-}
-
-module "personal_account_whitelist_attachment" {
-  source = "../terraform-modules/aws-scp-attachment"
-
-  aws_profile = var.profile
-  policy_id   = module.scp_whitelist.id
+  policy_id   = module.scp_allow_list.id
   target_id   = module.personal_account.id
 }

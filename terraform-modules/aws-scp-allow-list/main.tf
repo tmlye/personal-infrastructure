@@ -1,6 +1,6 @@
 resource "aws_organizations_policy" "this" {
-  name        = "Baseline"
+  name        = "AllowList"
   description = "Allows access to used services"
 
-  content = templatefile("${path.module}/baseline.json", {})
+  content = templatefile("${path.module}/allow-list.json", {})
 }
