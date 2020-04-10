@@ -1,7 +1,7 @@
 .PHONY: init apply plan
 
 init:
-	terraform init -backend-config=backend_config.tfvars
+	terraform init -backend-config=backend.tfvars
 
 plan:
 	terraform plan -var-file=config.tfvars
