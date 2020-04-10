@@ -1,8 +1,4 @@
-locals {
-  common_tags = {
-    component = "backup"
-  }
-}
+data "aws_caller_identity" "current" {}
 
 module "terraform_state" {
   source = "../terraform-modules/aws-terraform-state"
@@ -47,7 +43,9 @@ resource "aws_s3_bucket" "this" {
     }
   }
 
-  tags = local.common_tags
+  tags = {
+    component = "backup"
+  }
 }
 
 resource "aws_s3_bucket_public_access_block" "this" {
@@ -57,4 +55,47 @@ resource "aws_s3_bucket_public_access_block" "this" {
   block_public_policy     = true
   ignore_public_acls      = true
   restrict_public_buckets = true
+}
+
+resource "aws_s3_bucket_policy" "this" {
+  bucket = aws_s3_bucket.this.id
+  policy = data.aws_iam_policy_document.this.json
+}
+
+data "aws_iam_policy_document" "this" {
+  statement {
+    actions = ["s3:*"]
+    effect  = "Allow"
+
+    principals {
+      identifiers = ["arn:aws:iam::${data.aws_caller_identity.current.account_id}:user/UploadBackup"]
+      type        = "AWS"
+    }
+
+    sid = "AllowBackupUser"
+
+    resources = [
+      "arn:aws:s3:::${aws_s3_bucket.this.id}",
+      "arn:aws:s3:::${aws_s3_bucket.this.id}/*",
+    ]
+  }
+
+  statement {
+    sid    = "DenyUnSecureCommunications"
+    effect = "Deny"
+
+    principals {
+      identifiers = ["*"]
+      type        = "*"
+    }
+
+    actions   = ["s3:*"]
+    resources = ["arn:aws:s3:::${aws_s3_bucket.this.id}/*"]
+
+    condition {
+      test     = "Bool"
+      values   = ["false"]
+      variable = "aws:SecureTransport"
+    }
+  }
 }
