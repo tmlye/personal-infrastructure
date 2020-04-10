@@ -1,6 +1,7 @@
-bucket           = "backup-tf-state-gh3kn"
 dynamodb_table   = "backup-tf-state-lock-5pnnm"
-profile          = "personal-terraform"
+keybase_username = "seg"
 
-key    = "terraform.tfstate"
-region = "eu-north-1"
+# Below are shared with backend_config.tfvars
+region  = "eu-north-1"
+bucket  = "backup-tf-state-gh3kn"
+profile = "personal-terraform"
