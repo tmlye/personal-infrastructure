@@ -1,13 +1,5 @@
 data "aws_caller_identity" "current" {}
 
-module "terraform_state" {
-  source = "../terraform-modules/aws-terraform-state"
-
-  component           = "backup"
-  bucket_name         = var.bucket
-  dynamodb_table_name = var.dynamodb_table
-}
-
 resource "aws_s3_bucket" "this" {
   bucket = "duplicity-backup-j7v3a"
   acl    = "private"

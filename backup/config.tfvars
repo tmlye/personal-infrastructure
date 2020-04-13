@@ -1,7 +1,7 @@
-dynamodb_table   = "backup-tf-state-lock-5pnnm"
+dynamodb_table   = "personal-2-tf-state-c8yu"
 keybase_username = "seg"
 
 # Below are shared with backend_config.tfvars
 region  = "eu-north-1"
-bucket  = "backup-tf-state-gh3kn"
+bucket  = "personal-2-tf-state-c8yu"
 profile = "personal-terraform"

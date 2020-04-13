@@ -1,6 +1,6 @@
-key = "terraform.tfstate"
+key    = "backup.tfstate"
+region = "us-east-1"
 
 # Below are shared with config.tfvars
-region  = "eu-north-1"
-bucket  = "backup-tf-state-gh3kn"
+bucket  = "personal-2-tf-state-c8yu"
 profile = "personal-terraform"
