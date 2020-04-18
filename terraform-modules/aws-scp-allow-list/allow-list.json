@@ -3,12 +3,14 @@
   "Statement": {
     "Effect": "Allow",
     "Action": [
+        "acm:*",
         "budgets:*",
         "cloudfront:*",
         "dynamodb:*",
         "iam:*",
         "kms:*",
         "organizations:*",
+        "route53:*",
         "s3:*",
         "sts:*",
         "support:*"
