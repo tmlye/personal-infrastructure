@@ -4,6 +4,7 @@
     "Effect": "Allow",
     "Action": [
         "budgets:*",
+        "cloudfront:*",
         "dynamodb:*",
         "iam:*",
         "kms:*",
