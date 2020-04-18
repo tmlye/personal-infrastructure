@@ -3,8 +3,7 @@ resource "aws_cloudfront_origin_access_identity" "this" {}
 resource "aws_cloudfront_distribution" "this" {
   enabled         = true
   is_ipv6_enabled = true
-  compress        = true
-  aliases         = [var.domain_name] // TODO: is this needed?
+  #aliases         = [var.domain_name] // TODO: is this needed?
 
   default_root_object = "index.html"
 
@@ -12,6 +11,7 @@ resource "aws_cloudfront_distribution" "this" {
     target_origin_id = local.s3_origin_id
     allowed_methods  = ["HEAD", "GET", "OPTIONS"]
     cached_methods   = ["HEAD", "GET", "OPTIONS"]
+    compress         = true
 
     forwarded_values {
       query_string = true
@@ -44,9 +44,10 @@ resource "aws_cloudfront_distribution" "this" {
   }
 
   viewer_certificate {
-    acm_certificate_arn      = aws_acm_certificate.this.arn //TODO, cert must be in us-east-1
-    minimum_protocol_version = "TLSv1.2_2018"
-    ssl_support_method       = "sni-only"
+    #acm_certificate_arn      = aws_acm_certificate.this.arn //TODO, cert must be in us-east-1
+    #minimum_protocol_version = "TLSv1.2_2018"
+    #ssl_support_method       = "sni-only"
+    cloudfront_default_certificate = true
   }
 
   tags = local.common_tags
