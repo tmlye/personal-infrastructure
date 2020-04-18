@@ -1,9 +1,7 @@
 module "terraform_state" {
   source = "../terraform-modules/aws-terraform-state"
 
-  component           = "org"
-  bucket_name         = var.bucket
-  dynamodb_table_name = var.dynamodb_table
+  name_prefix = "org"
 }
 
 resource "aws_organizations_organization" "org" {

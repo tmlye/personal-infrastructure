@@ -1,3 +1,4 @@
-variable "bucket_name" {}
-variable "dynamodb_table_name" {}
-variable "component" {}
+variable "name_prefix" {
+  type        = string
+  description = "The string to prefix in the bucket and table name"
+}

@@ -7,9 +7,9 @@ output "arn" {
 }
 
 output "state_bucket_id" {
-  value = aws_s3_bucket.this.id
+  value = module.terraform_state.bucket_id
 }
 
 output "state_table_id" {
-  value = aws_dynamodb_table.this.id
+  value = module.terraform_state.table_id
 }

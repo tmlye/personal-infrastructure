@@ -1,11 +1,11 @@
 locals {
   common_tags = {
-    component = var.component
+    component = "terraform"
   }
 }
 
 resource "aws_s3_bucket" "this" {
-  bucket = var.bucket_name
+  bucket = "${var.name_prefix}-tf-state-${random_string.this.result}"
   acl    = "private"
 
   versioning {
@@ -42,7 +42,7 @@ resource "aws_s3_bucket_public_access_block" "this" {
 }
 
 resource "aws_dynamodb_table" "this" {
-  name         = var.dynamodb_table_name
+  name         = "${var.name_prefix}-tf-state-${random_string.this.result}"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "LockID"
 
@@ -52,4 +52,10 @@ resource "aws_dynamodb_table" "this" {
   }
 
   tags = local.common_tags
+}
+
+resource "random_string" "this" {
+  length  = 4
+  upper   = false
+  special = false
 }
