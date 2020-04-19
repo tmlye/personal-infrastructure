@@ -6,6 +6,7 @@
         "acm:*",
         "budgets:*",
         "cloudfront:*",
+        "cloudwatch:*",
         "dynamodb:*",
         "iam:*",
         "kms:*",
