@@ -5,10 +5,18 @@ resource "aws_route53_zone" "this" {
 }
 
 resource "aws_route53_record" "cert_validation" {
+  zone_id = aws_route53_zone.this.id
   name    = aws_acm_certificate.this.domain_validation_options[0].resource_record_name
   type    = aws_acm_certificate.this.domain_validation_options[0].resource_record_type
-  zone_id = aws_route53_zone.this.id
   records = [aws_acm_certificate.this.domain_validation_options[0].resource_record_value]
+  ttl     = 60
+}
+
+resource "aws_route53_record" "cert_validation_www" {
+  zone_id = aws_route53_zone.this.id
+  name    = aws_acm_certificate.this.domain_validation_options[1].resource_record_name
+  type    = aws_acm_certificate.this.domain_validation_options[1].resource_record_type
+  records = [aws_acm_certificate.this.domain_validation_options[1].resource_record_value]
   ttl     = 60
 }
 
