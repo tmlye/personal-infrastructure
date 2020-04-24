@@ -3,19 +3,20 @@
   "Statement": {
     "Effect": "Allow",
     "Action": [
-        "acm:*",
-        "budgets:*",
-        "cloudfront:*",
-        "cloudwatch:*",
-        "dynamodb:*",
-        "iam:*",
-        "kms:*",
-        "logs:*",
-        "organizations:*",
-        "route53:*",
-        "s3:*",
-        "sts:*",
-        "support:*"
+      "acm:*",
+      "budgets:*",
+      "cloudfront:*",
+      "cloudwatch:*",
+      "dynamodb:*",
+      "iam:*",
+      "kms:*",
+      "lambda:*",
+      "logs:*",
+      "organizations:*",
+      "route53:*",
+      "s3:*",
+      "sts:*",
+      "support:*"
     ],
     "Resource": "*"
   }
