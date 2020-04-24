@@ -10,6 +10,7 @@
         "dynamodb:*",
         "iam:*",
         "kms:*",
+        "logs:*",
         "organizations:*",
         "route53:*",
         "s3:*",
