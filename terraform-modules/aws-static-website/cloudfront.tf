@@ -26,6 +26,12 @@ resource "aws_cloudfront_distribution" "this" {
     max_ttl     = 86400
 
     viewer_protocol_policy = "redirect-to-https"
+
+    lambda_function_association {
+      event_type   = "origin-request"
+      lambda_arn   = aws_lambda_function.redirect.qualified_arn
+      include_body = false
+    }
   }
 
   origin {
