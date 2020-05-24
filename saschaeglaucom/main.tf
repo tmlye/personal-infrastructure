@@ -5,6 +5,8 @@ module "website" {
   component   = "saschaeglaucom"
   environment = "prod"
 
+  keybase_username = "seg"
+
   providers = {
     aws           = aws
     aws.us-east-1 = aws.us-east-1
