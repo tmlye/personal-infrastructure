@@ -1,5 +1,5 @@
 locals {
-  redirect_lambda_name = "redirect-to-index"
+  redirect_lambda_name = "${var.component}-redirect-to-index-${var.environment}"
 }
 
 resource "aws_lambda_function" "redirect" {
