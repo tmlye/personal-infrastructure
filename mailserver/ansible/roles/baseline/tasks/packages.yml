@@ -1,0 +1,15 @@
+- name: Update apt cache
+  apt: update_cache=yes
+
+- name: Upgrade all safe packages
+  apt: upgrade=safe
+
+- name: Install packages
+  apt:
+    pkg:
+    - apticron
+    - git
+    - htop
+    - sudo
+    - vim
+    - zsh
