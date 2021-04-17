@@ -2,14 +2,6 @@ data "aws_route53_zone" "this" {
   name = "saschaeglau.com"
 }
 
-resource "aws_route53_record" "a" {
-  zone_id = data.aws_route53_zone.this.zone_id
-  name    = "mail"
-  type    = "A"
-  ttl     = "300"
-  records = ["146.185.164.127"]
-}
-
 resource "aws_route53_record" "mx" {
   zone_id = data.aws_route53_zone.this.zone_id
   name    = "saschaeglau.com"
