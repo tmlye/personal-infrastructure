@@ -22,11 +22,10 @@ data "aws_iam_policy_document" "deploy_user" {
 
     actions = [
       "s3:ListAllMyBuckets",
-      "s3:GetBucketLocation",
     ]
 
     resources = [
-      "arn:aws:s3:::*",
+      "*",
     ]
   }
 
@@ -35,6 +34,7 @@ data "aws_iam_policy_document" "deploy_user" {
 
     actions = [
       "s3:ListBucket",
+      "s3:GetBucketLocation",
     ]
 
     resources = [
