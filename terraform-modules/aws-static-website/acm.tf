@@ -13,8 +13,5 @@ resource "aws_acm_certificate_validation" "this" {
   provider = aws.us-east-1
 
   certificate_arn         = aws_acm_certificate.this.arn
-  validation_record_fqdns = [
-    aws_route53_record.cert_validation.fqdn,
-    aws_route53_record.cert_validation_www.fqdn,
-  ]
+  validation_record_fqdns = [for record in aws_route53_record.cert_validation : record.fqdn]
 }
