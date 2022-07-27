@@ -35,7 +35,6 @@
 
 - Use one access key pair for terraform in the master account with MFA enabled
   and assume roles in the child accounts instead of having a keypair per account
-- Create a separate keypair for doing the backup, with limited permissions
 
 # Terraform State Storage
 
