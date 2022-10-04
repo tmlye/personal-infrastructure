@@ -1,4 +1,6 @@
-keybase_username = "seg"
+keybase_username        = "seg"
+admin_email             = "se@saschaeglau.com"
+billing_alarm_threshold = 20
 
 # Below are shared with backend_config.tfvars
 region  = "us-east-1"
