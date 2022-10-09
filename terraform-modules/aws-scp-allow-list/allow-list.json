@@ -4,6 +4,7 @@
     "Effect": "Allow",
     "Action": [
       "acm:*",
+      "aws-portal:*",
       "budgets:*",
       "cloudfront:*",
       "cloudwatch:*",
@@ -16,7 +17,8 @@
       "route53:*",
       "s3:*",
       "sts:*",
-      "support:*"
+      "support:*",
+      "sustainability:*"
     ],
     "Resource": "*"
   }
