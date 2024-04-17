@@ -1,4 +1,4 @@
-.PHONY: init apply plan
+.PHONY: init apply plan destroy
 
 init:
 	terraform init -backend-config=backend.tfvars
@@ -8,3 +8,6 @@ plan:
 
 apply:
 	terraform apply -var-file=config.tfvars
+
+destroy:
+	terraform destroy -var-file=config.tfvars
