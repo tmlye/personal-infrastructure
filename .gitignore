@@ -2,6 +2,4 @@
 **/.terraform/*
 *.tfstate
 *.tfstate.*
-
-# Agent worktrees
 .agents/
