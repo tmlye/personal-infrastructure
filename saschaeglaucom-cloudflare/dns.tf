@@ -16,7 +16,6 @@ locals {
   site_proxied = var.site_origin == "pages"
 }
 
-# Mail stays DNS only. A proxied DKIM CNAME breaks signature lookups.
 resource "cloudflare_dns_record" "mail" {
   for_each = local.mail_records
 
@@ -40,7 +39,6 @@ resource "cloudflare_dns_record" "site" {
   ttl     = 1
 }
 
-# ACM renews the CloudFront certificate through these. They go away with CloudFront.
 locals {
   acm_validation_records = var.site_origin == "cloudfront" ? {
     acm_apex = { name = "_d84cfe91aaae2abb384b536c0b75d332.${local.domain}", content = "_69ea44b6395262bcf75c7b42bc29f856.nhqijqilxf.acm-validations.aws" }

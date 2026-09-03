@@ -6,7 +6,6 @@ endpoints = { s3 = "https://f01841d199c2465135bec873f2e3e534.r2.cloudflarestorag
 
 profile = "cloudflare-r2"
 
-# Locking through a .tflock object, R2 supports the conditional write it needs.
 use_lockfile = true
 
 skip_credentials_validation = true

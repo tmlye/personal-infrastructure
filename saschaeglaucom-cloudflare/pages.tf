@@ -2,7 +2,6 @@ locals {
   pages_project_name = "saschaeglaucom"
 }
 
-# Needs the Cloudflare Pages GitHub app connected to the account first (dashboard, one time).
 resource "cloudflare_pages_project" "site" {
   account_id        = data.cloudflare_zone.main.account.id
   name              = local.pages_project_name
