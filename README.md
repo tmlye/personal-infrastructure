@@ -4,8 +4,5 @@ This repository contains the code for my personal infrastructure. It is provisio
 
 - [aws-org](aws-org) is used to manage the AWS organization, which includes the various accounts and service control policies
 - [cloudflare-account](cloudflare-account) manages account level Cloudflare resources, currently the R2 bucket that stores the state of the Cloudflare components
-- [danieleglaucom](danieleglaucom) provisions an S3 bucket, cloudfront, acm and route 53 for [my bother's personal website](https://danieleglau.com/)
-- [mail](mail) sets up Route 53 DNS records for using saschaeglau.com with Protonmail. Replaced by saschaeglaucom-cloudflare, delete after the DNS move.
-- [saschaeglaucom](saschaeglaucom) provisions an S3 bucket, cloudfront, acm and route 53 for my [personal website](https://saschaeglau.com/). Replaced by saschaeglaucom-cloudflare, delete after the DNS move.
 - [saschaeglaucom-cloudflare](saschaeglaucom-cloudflare) manages the Cloudflare zone, DNS records and the Pages project for my [personal website](https://saschaeglau.com/)
 - [terraform-modules](terraform-modules) contains various modules which are reused among the terraform configs
